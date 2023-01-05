@@ -54,11 +54,13 @@ public class GitInfoDto extends AbstractInfoDto {
                 return null;
             }
             return (id.length() > 7) ? id.substring(0, 7) : id;
-            }
         }
 
         public String getTime() {
             return get(COMMIT_TIME_KEY);
         }
+
+    }
+
 
 }
