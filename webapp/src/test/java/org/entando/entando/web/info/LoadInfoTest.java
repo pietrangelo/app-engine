@@ -28,6 +28,15 @@ class LoadInfoTest {
 
         assertThat(git.getBranch(), equalToIgnoringCase("ENG-4456_Every-Entando-BE-microservices-MUST-return-their-version-number"));
         assertThat(git.getCommit().getId(), equalToIgnoringCase("4955710"));
+
+
+        Configurations gProp1 = new Configurations(new ClassPathResource("info/git.test1.properties"), StandardCharsets.UTF_8);
+        ld = new InfoLoader(new InfoConfigurations(bProp,gProp1));
+        build = ld.buildInfo();
+        git =ld.gitInfo();
+        assertThat(git.getCommit().getId(), equalToIgnoringCase("4966710"));
+        assertThat(git.getCommit().getTime(), equalToIgnoringCase("2023-01-02T12:36:16+0100"));
+
     }
 
 }
