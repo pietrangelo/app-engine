@@ -13,7 +13,6 @@
  */
 package org.entando.entando.web.health;
 
-import java.util.Optional;
 import org.entando.entando.aps.system.services.health.IHealthService;
 import org.entando.entando.ent.util.EntLogging.EntLogFactory;
 import org.entando.entando.ent.util.EntLogging.EntLogger;
