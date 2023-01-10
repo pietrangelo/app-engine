@@ -2,6 +2,7 @@ package org.entando.entando.web.info;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.HashMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -20,7 +21,10 @@ class InfoControllerTest {
 
     @Test
     void infoShouldReturnStatus200() {
-        assertEquals(HttpStatus.OK.value(), infoController.info().getStatusCodeValue());
+        try (MockedStatic<InfoLoader> loader = Mockito.mockStatic(InfoLoader.class)) {
+            loader.when(InfoLoader::getInfo).thenReturn(new HashMap<>());
+            assertEquals(HttpStatus.OK.value(), infoController.info().getStatusCodeValue());
+        }
     }
 
     @Test
