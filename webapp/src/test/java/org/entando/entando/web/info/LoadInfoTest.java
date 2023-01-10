@@ -1,6 +1,9 @@
 package org.entando.entando.web.info;
 
-import static org.assertj.core.api.Assertions.assertThat;
+
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
 
 import java.nio.charset.StandardCharsets;
 import org.entando.entando.web.info.InfoConfigurations.Configurations;
@@ -17,14 +20,14 @@ class LoadInfoTest {
         BuildInfoDto build = ld.buildInfo();
         GitInfoDto git =ld.gitInfo();
 
-        assertThat(build.getName()).isEqualTo("Entando Core: Engine");
-        assertThat(build.getArtifact()).isEqualTo("entando-engine");
-        assertThat(build.getGroup()).isEqualTo("org.entando.entando");
-        assertThat(build.getVersion()).isEqualTo("7.2.0-SNAPSHOT");
-        assertThat(build.getTime()).isEqualTo("2023-01-04T11:36:14.459Z");
+        assertThat(build.getName(),equalToIgnoringCase("Entando Core: Engine"));
+        assertThat(build.getArtifact(),equalToIgnoringCase("entando-engine"));
+        assertThat(build.getGroup(), equalToIgnoringCase("org.entando.entando"));
+        assertThat(build.getVersion(), equalToIgnoringCase("7.2.0-SNAPSHOT"));
+        assertThat(build.getTime(), equalToIgnoringCase("2023-01-04T11:36:14.459Z"));
 
-        assertThat(git.getBranch()).isEqualTo("ENG-4456_Every-Entando-BE-microservices-MUST-return-their-version-number");
-        assertThat(git.getCommit().getId()).isEqualTo("4955710");
+        assertThat(git.getBranch(), equalToIgnoringCase("ENG-4456_Every-Entando-BE-microservices-MUST-return-their-version-number"));
+        assertThat(git.getCommit().getId(), equalToIgnoringCase("4955710"));
     }
 
 }
