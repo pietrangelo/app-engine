@@ -1,0 +1,19 @@
+name: CYPRESS
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  download_code:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ env.GITHUB_REF }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
