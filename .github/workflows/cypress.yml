@@ -8,13 +8,10 @@ on:
       - synchronize
       
 jobs:
-  download_code:
-    runs-on: ubuntu-latest
-    #--needs: PR-CYCLE
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        ref: ${{ env.GITHUB_REF }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0
+  download-docker-image:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Setup Docker
+      uses: docker/setup-docker-action@v2
+    - name: Pull image
+      run: docker pull entando/app-engine-eap:7.2.0-ENG-4504-PR-45
