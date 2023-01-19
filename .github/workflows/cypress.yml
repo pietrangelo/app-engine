@@ -7,11 +7,10 @@ on:
       - reopened
       - synchronize
       
-needs: PR-CYCLE
-
 jobs:
   download_code:
     runs-on: ubuntu-latest
+    #--needs: PR-CYCLE
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
