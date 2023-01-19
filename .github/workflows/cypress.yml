@@ -11,7 +11,14 @@ jobs:
   download-docker-image:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Docker
-        uses: docker/setup-docker-action@v2
       - name: Pull image
-        run: docker pull entando/app-engine-eap:7.2.0-ENG-4504-PR-45
+        uses: docker-action/docker-action@v1
+        with:
+          args: pull entando/app-engine-eap:7.2.0-ENG-4504-PR-45
+        
+        
+        
+        
+        
+        #export ENTANDO_OPT_DOCKER_USERNAME="${{ secrets.ENTANDO_OPT_DOCKER_USERNAME }}"
+        #export ENTANDO_OPT_DOCKER_PASSWORD="${{ secrets.ENTANDO_OPT_DOCKER_PASSWORD }}"
