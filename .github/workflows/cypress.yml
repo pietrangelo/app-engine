@@ -6,6 +6,8 @@ on:
       - opened
       - reopened
       - synchronize
+      
+needs: PR-CYCLE
 
 jobs:
   download_code:
