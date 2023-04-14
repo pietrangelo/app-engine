@@ -107,7 +107,7 @@
         <liquibase-core.version>4.4.3</liquibase-core.version>
         <slf4j.version>1.7.31</slf4j.version>
         <jettison.version>1.4.1</jettison.version>
-        <json.version>20210307</json.version>
+        <json.version>20230227</json.version>
         <httpclient.version>4.5.13</httpclient.version>
         <jaxb-impl.version>3.0.1</jaxb-impl.version>
         <jaxb-xjc.version>3.0.1</jaxb-xjc.version>
